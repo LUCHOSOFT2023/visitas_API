@@ -9,9 +9,7 @@ class Server{
     constructor(){
         this.app = express()
         this.port = process.env.PORT //Capturando variable puerto
-        this.usuarioPath = '/api/usuarios' //Ruta pública usuarios
-        this.compraPath ='/api/compras' //Esta es la ruta publica de compras
-        this.categoriaPath ='/api/categoria' //Esta es la ruta publica de categoria de productos.
+        this.visitaPath ='/api/visitas' //Esta es la ruta publica de compras
         this.middlewares();
         this.conectarDB()
         this.routes()
@@ -31,9 +29,7 @@ class Server{
     }
 
     routes(){
-        this.app.use(this.usuarioPath, require('../routes/usuarios'))
-        this.app.use(this.compraPath, require('../routes/compras'))
-        this.app.use(this.categoriaPath, require('../routes/categoria'))
+        this.app.use(this.visitaPath, require('../routes/visitas'))
 
 
     }

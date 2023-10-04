@@ -2,17 +2,17 @@ const {response} = require('express')
 
 
 //Importación de los modelos
-const Compra = require('../models/compras')
+const Visita = require('../models/visitas')
 
 //Método GET de la API
-const compraGet = async(req, res = response) =>{
+const visitaGet = async(req, res = response) =>{
     //const {nombre} = req.query //Desestructuración
-    const {id_compra} = req.query;
+    const {nombre_paciente} = req.query;
     //Consultar todos las compras
     try {
-        let compra;
+        let Visita;
 
-        if (id_compra) {
+        if ( nombre_paciente) {
             // Si se proporciona un id, realizar una búsqueda por nombre
             compra = await Compra.find({ id_compra: id_compra });
         } else {
